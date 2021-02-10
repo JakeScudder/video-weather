@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;600;700;800&display=swap");
+
+:root {
+  --overlay-color: #03a9f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inconsolata', monospace";
+}
+
+.showcase {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  color: white;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.showcase.active {
+  right: 300px;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle {
+  position: relative;
+  cursor: pointer;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.toggle.active {
+  position: relative;
+  cursor: pointer;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+  mix-blend-mode: overlay;
+}
+
+.text {
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+  z-index: 5;
+  color: #000000;
+}
+
+.text h2 {
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1em;
+  max-width: 600px;
+  margin-left: 20px;
+}
+
+.text h3 {
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1em;
+  margin: 20px 0px;
+  max-width: 400px;
+  border-bottom: 4px solid transparent;
+}
+
+.button-div {
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.text a {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 1em;
+  background: #fff;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.text a:hover {
+  letter-spacing: 2.5px;
+  padding: 12px;
+}
+
+.social {
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.social li {
+  list-style: none;
+}
+
+.social li a {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  transition: 0.5s;
+}
+
+.social li a:hover {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu ul {
+  position: relative;
+  list-style: none;
+}
+
+.menu ul li {
+  margin-bottom: 20px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+}
+
+.menu ul li a:hover {
+  color: var(--overlay-color);
+}
+
+@media (max-width: 1000px) {
+  .showcase,
+  .showcase header {
+    padding: 40px;
+  }
+
+  .text h2 {
+    font-size: 1.2em;
+  }
+}
