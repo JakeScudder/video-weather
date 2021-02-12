@@ -3,9 +3,6 @@ import axios from "axios";
 import { Card } from "react-bootstrap";
 import logo from "../logo.svg";
 
-// Fetch
-import apiKey from "../config";
-
 // List of all cities with specific codes
 const cityData = require("../city.list.json");
 
@@ -15,7 +12,7 @@ const Weather = ({ city, state, search }) => {
   const [currentTemp, setCurrentTemp] = useState(0);
   const [feelsLike, setFeelsLike] = useState(0);
   const [conditions, setConditions] = useState("");
-  const [localCity, setLocalCity] = useState("...");
+  const [localCity, setLocalCity] = useState("Charlottesville");
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -55,7 +52,7 @@ const Weather = ({ city, state, search }) => {
     setLoading(true);
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?id=${code}&units=imperial&APPID=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?id=${code}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`
       )
       .then((res) => {
         console.log(res);
