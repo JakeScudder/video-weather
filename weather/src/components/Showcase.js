@@ -28,45 +28,58 @@ const Showcase = ({ history }) => {
       </video>
       <div class="overlay"></div>
 
-      <Weather city={city} state={state} search={search} />
+      <Col className="search-forecast-div">
+        <Row className="search-container">
+          <div class="text">
+            <div className="greeting-h2-div">
+              <h2>What's the weather like today?</h2>
+            </div>
 
-      <div class="text">
-        <div className="greeting-h2-div">
-          <h2>What's the weather like today?</h2>
-        </div>
-
-        <div class="button-div">
-          <Form onSubmit={submitHandler} inline>
-            <Col>
-              <Row>
-                <Form.Label>City</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="city"
-                  onChange={(e) => setCity(e.target.value)}
-                  placeholder="Denver"
-                  className="mr-2 ml-sm-5"></Form.Control>
-                <Form.Label className="mr-2">State</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="state"
-                  onChange={(e) => setState(e.target.value)}
-                  placeholder="CO"
-                  className="mr-sm-2 ml-sm-5"></Form.Control>
-              </Row>
-              <Row className="submit-row">
-                <Button
-                  type="submit"
-                  variant="outline-success"
-                  className="learn-more p-2">
-                  Search
-                </Button>
-              </Row>
-            </Col>
-          </Form>
-        </div>
-        <Social />
-      </div>
+            <div class="form-div">
+              <Form onSubmit={submitHandler} inline>
+                <Col>
+                  <Row>
+                    <Col>
+                      <Form.Label>City</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="city"
+                        onChange={(e) => setCity(e.target.value)}
+                        placeholder="Denver"
+                        className="city-input"></Form.Control>
+                    </Col>
+                    <Col>
+                      <Form.Label className="mr-2">State</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="state"
+                        onChange={(e) => setState(e.target.value)}
+                        placeholder="CO"
+                        className="mr-sm-2 ml-sm-5"></Form.Control>
+                    </Col>
+                  </Row>
+                  <Row className="social-submit">
+                    <Col style={{ width: "100px" }}>
+                      <Social />
+                    </Col>
+                    <Col>
+                      <Button
+                        type="submit"
+                        variant="outline-success"
+                        className="submit-button p-2">
+                        Search
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
+              </Form>
+            </div>
+          </div>
+        </Row>
+        <Row className="weather">
+          <Weather city={city} state={state} search={search} />
+        </Row>
+      </Col>
     </div>
   );
 };

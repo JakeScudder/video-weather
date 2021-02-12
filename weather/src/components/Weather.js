@@ -11,7 +11,7 @@ const cityData = require("../city.list.json");
 
 const Weather = ({ city, state, search }) => {
   const [loading, setLoading] = useState(false);
-  const [locationCode, setLocationCode] = useState(0);
+  const [locationCode, setLocationCode] = useState(4752031);
   const [currentTemp, setCurrentTemp] = useState(0);
   const [feelsLike, setFeelsLike] = useState(0);
   const [conditions, setConditions] = useState("");
@@ -21,6 +21,7 @@ const Weather = ({ city, state, search }) => {
   useEffect(() => {
     if (city && state) {
       findCityCode(city, state);
+      handleWeatherFetch(locationCode);
     }
 
     if (city && search) {

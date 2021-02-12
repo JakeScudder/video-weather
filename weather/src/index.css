@@ -1,14 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600;700;800&display=swap");
 
 :root {
   --overlay-color: #03a9f4;
+  --translucent-background: rgb(29, 144, 208, 0.85);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inconsolata', monospace";
+  font-family: "Oswald", sans-serif;
 }
 
 .showcase {
@@ -18,7 +19,7 @@
   min-height: 100vh;
   padding: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: #111;
   color: white;
@@ -79,20 +80,35 @@
 
 /* Weather Card */
 
-.weather-card {
+.weather {
+  margin-left: 2rem;
   z-index: 5;
-  width: 500px;
-  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-card {
+  width: 70%;
+}
+
+.search-forecast-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .card-title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 2.2rem;
   margin-bottom: 20px;
   border-bottom: 4px solid #ffffffb5;
-  width: 60%;
   margin-left: auto;
   margin-right: auto;
+  color: black;
+  background: var(--translucent-background);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .card-text {
@@ -101,21 +117,29 @@
   margin-bottom: 1rem;
 }
 
+.card img {
+  height: 150px;
+}
+
 /* Search Box*/
 
-.text {
-  position: absolute;
-  bottom: 75px;
+.search-container {
+  height: 300px;
+  width: 400px;
+  margin-right: 2rem;
+  margin-top: 10rem;
+  background: var(--translucent-background);
   z-index: 5;
-  color: #000000;
-  background: #17478e;
   padding: 20px;
   border-radius: 20px;
-  opacity: 0.85;
+}
+
+.text {
+  color: #000000;
 }
 
 .text h2 {
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-weight: 800;
   line-height: 1.5em;
   max-width: 600px;
@@ -132,42 +156,38 @@
 }
 
 .greeting-h2-div {
-  height: 40px;
+  margin-bottom: 20px;
 }
 
-.button-div {
-  height: 80px;
-  margin-bottom: 5px;
+.form-div {
 }
 
-.submit-row {
-  height: 80px;
+.social-submit {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 100%;
+  margin-top: 1rem;
+  justify-content: center;
 }
 
 .form-label {
   margin-right: 1rem;
+  display: inline-block;
+  width: 50px;
+}
+
+.city-input {
+  margin-bottom: 0.5rem;
 }
 
 .form-control {
   margin-right: 1rem;
   width: 100px;
+  border: 3px solid black;
   border-radius: 5px;
   height: 1.5rem;
   text-align: center;
-}
-
-.learn-more {
-  float: left;
-  margin: 20px 0px 20px 20px;
-  font-size: 1.2em;
-  font-weight: 700;
-  background: #3197f7;
-  color: black;
-  border-radius: 5px;
-  padding: 5px;
-  text-decoration: none;
-  letter-spacing: 1px;
-  transition: 0.3s;
 }
 
 .learn-more:hover {
@@ -175,17 +195,9 @@
   padding: 12px;
 }
 
-.social-container {
-  height: 50px;
-}
-
 .social {
-  position: absolute;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-left: 20px;
-  margin-top: 1rem;
 }
 
 .social li {
@@ -194,13 +206,27 @@
 
 .social li a {
   margin-right: 10px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   transition: 0.5s;
 }
 
 .social li a:hover {
   font-size: 2rem;
   cursor: pointer;
+}
+
+.submit-button {
+  font-size: 1.2em;
+  font-weight: 700;
+  background: #3197f7;
+  border: 3px solid black;
+  color: black;
+  border-radius: 5px;
+  margin-left: 30px;
+  padding: 5px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
 .menu {
@@ -233,7 +259,7 @@
   color: var(--overlay-color);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 875px) {
   .showcase,
   .showcase header {
     padding: 40px;
@@ -241,5 +267,42 @@
 
   .text h2 {
     font-size: 1.2em;
+  }
+}
+
+@media (max-width: 1225px) {
+  .search-container,
+  .weather {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  .search-container {
+    margin-top: 5rem;
+  }
+
+  .search-container {
+    max-height: 250px;
+    width: 85%;
+  }
+
+  .card img {
+    height: 80px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 700px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+  .header {
+    padding: 20px 20px;
   }
 }
