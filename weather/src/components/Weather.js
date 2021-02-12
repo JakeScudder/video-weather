@@ -18,6 +18,8 @@ const Weather = ({ city, state, search }) => {
   const [localCity, setLocalCity] = useState("...");
   const [results, setResults] = useState([]);
 
+  const myKey = process.env.REACT_APP_API_KEY;
+
   useEffect(() => {
     if (city && state) {
       findCityCode(city, state);
@@ -53,7 +55,7 @@ const Weather = ({ city, state, search }) => {
     setLoading(true);
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?id=${code}&units=imperial&APPID=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?id=${code}&units=imperial&APPID=${myKey}`
       )
       .then((res) => {
         console.log(res);
